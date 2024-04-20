@@ -5,8 +5,15 @@ public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI dialogueText; // Reference to TextMeshProUGUI element
     [SerializeField] private string[] dialogueLines; // Array to store dialogue strings
-    [SerializeField] private GameObject questionPanel; // Reference to the question panel GameObject
-    [SerializeField] private TextMeshProUGUI questionText; // Reference to TextMeshProUGUI for question
+    [SerializeField] private GameObject questionPanel; 
+
+    [SerializeField] private GameObject Enemy; 
+    
+    [SerializeField] private GameObject textField; 
+    // Reference to the question panel GameObject
+    [SerializeField] private TextMeshProUGUI questionText;
+    
+    [SerializeField] private TextMeshProUGUI Con; // Reference to TextMeshProUGUI for question
     [SerializeField] private TextMeshProUGUI[] answerButtons; // Array of TextMeshProUGUIs for answer buttons
 
     private int currentLineIndex = 0; // Keeps track of the current dialogue line
@@ -27,13 +34,13 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        questionPanel.SetActive(true); // Initially hide the question panel
+        questionPanel.SetActive(false); // Initially hide the question panel
         DisplayNextLine(); // Show the first line of dialogue on Start
     }
 
     void Update()
     {
-        if (isDialogueActive && Input.GetKeyDown(KeyCode.Space) && currentLineIndex < dialogueLines.Length) // Check for space key press during dialogue
+        if (isDialogueActive && Input.GetKeyDown(KeyCode.Space) && currentLineIndex <= dialogueLines.Length) // Check for space key press during dialogue
         {
             DisplayNextLine();
         }
@@ -45,6 +52,7 @@ public class DialogueManager : MonoBehaviour
         {
             // Dialogue finished, show question panel
             questionPanel.SetActive(true);
+            textField.SetActive(false);
             isDialogueActive = false;
             SetupQuestionAndAnswers(); // Set up question and answer options
             return;
@@ -62,7 +70,7 @@ public class DialogueManager : MonoBehaviour
         // Set answer options on buttons (assuming 4 answer buttons)
         for (int i = 0; i < answerButtons.Length; i++)
         {
-            answerButtons[i].text = "2"; // Replace with your answer retrieval logic
+            answerButtons[i].text = $"{i}"; // Replace with your answer retrieval logic
         }
 
         // Set the correct answer (assuming it's stored in a separate variable in your data structure)
@@ -71,12 +79,16 @@ public class DialogueManager : MonoBehaviour
 
     public void OnAnswerSelected(int answerIndex) // This function will be called by the button's onClick event
     {
+
+        Debug.Log("Sds");
         string selectedAnswer = answerButtons[answerIndex].text;
 
         if (selectedAnswer == correctAnswer)
         {
             // Destroy enemy (assuming the enemy script is attached to this game object)
-            Destroy(gameObject);
+            questionPanel.SetActive(true);
+            Con.SetActive(true);
+            Destroy(Enemy);
         }
         else
         {
