@@ -1,16 +1,18 @@
 # Define24
-The template repository for definehack2024
 
 ![WhatsApp Image 2024-04-18 at 12 33 29_51d9e514](https://github.com/Definehack/Define24/assets/79042374/4d6c229a-5048-4ac9-bba6-c0e835e22097)
 
-## Project Name
+## Smart Traffic Management
 Tell us about your project here
 
+## Team mutta puffs
+
 ### Team Members
-[1.Team Member 1](enter_github_id_here)   
-[2.Team Member 2](enter_github_id_here)   
-[3.Team Member 3](enter_github_id_here)   
-[4.Team Member 4](enter_github_id_here)   
+[1.Abhiragh A R](https://github.com/n0nsense-404)
+[2.Amodh Anil](https://github.com/AmodhAnil)  
+[3.Anirudh K](https://github.com/Anirudh-Kuldeep)  
+[4.Abhiram P](https://github.com/AbiAbiii)
+[5.Ramanunni R S](https://github.com/igris39
 
 ### Link to Project
 [Embed the live link of project](live_link)
