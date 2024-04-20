@@ -5,7 +5,7 @@
 ## Smart Traffic Management
 Tell us about your project here
 
-## Team mutta puffs
+## Team motta puffs
 
 ### Team Members
 [1.Abhiragh A R](https://github.com/n0nsense-404)
