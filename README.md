@@ -2,7 +2,7 @@
 
 ![WhatsApp Image 2024-04-18 at 12 33 29_51d9e514](https://github.com/Definehack/Define24/assets/79042374/4d6c229a-5048-4ac9-bba6-c0e835e22097)
 
-## Smart Traffic Management
+## Adaptive Gamified Learning Platform
 Tell us about your project here
 
 ## Team motta puffs
