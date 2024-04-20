@@ -9,10 +9,14 @@ Tell us about your project here
 
 ### Team Members
 [1.Abhiragh A R](https://github.com/n0nsense-404)
-[2.Amodh Anil](https://github.com/AmodhAnil)  
+
+[2.Amodh Anil](https://github.com/AmodhAnil) 
+
 [3.Anirudh K](https://github.com/Anirudh-Kuldeep)  
+
 [4.Abhiram P](https://github.com/AbiAbiii)
-[5.Ramanunni R S](https://github.com/igris39
+
+[5.Ramanunni R S](https://github.com/igris39)
 
 ### Link to Project
 [Embed the live link of project](live_link)
