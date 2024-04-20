@@ -1,25 +1,27 @@
 using UnityEngine;
 using TMPro;
 
+using System.Threading.Tasks;
+
+using UnityEngine.SceneManagement;
+
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI dialogueText; // Reference to TextMeshProUGUI element
-    [SerializeField] private string[] dialogueLines; // Array to store dialogue strings
+    [SerializeField] private TextMeshProUGUI dialogueText; 
+    [SerializeField] private string[] dialogueLines; 
     [SerializeField] private GameObject questionPanel; 
 
     [SerializeField] private GameObject Enemy; 
     
     [SerializeField] private GameObject textField; 
-    // Reference to the question panel GameObject
-    [SerializeField] private TextMeshProUGUI questionText;
+       [SerializeField] private TextMeshProUGUI questionText;
     
-    [SerializeField] private TextMeshProUGUI Con; // Reference to TextMeshProUGUI for question
-    [SerializeField] private TextMeshProUGUI[] answerButtons; // Array of TextMeshProUGUIs for answer buttons
+    [SerializeField] private GameObject Con; 
+    [SerializeField] private TextMeshProUGUI[] answerButtons; 
 
-    private int currentLineIndex = 0; // Keeps track of the current dialogue line
-    private bool isDialogueActive = true; // Flag to track if dialogue is ongoing
-    private string correctAnswer; // Stores the correct answer for the question
-
+    private int currentLineIndex = 0; 
+    private bool isDialogueActive = true;
+    private string correctAnswer; 
     void Start()
     {
         if (dialogueText == null)
@@ -34,13 +36,14 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        questionPanel.SetActive(false); // Initially hide the question panel
-        DisplayNextLine(); // Show the first line of dialogue on Start
+        questionPanel.SetActive(false);
+        Con.SetActive(false); 
+        DisplayNextLine(); 
     }
 
     void Update()
     {
-        if (isDialogueActive && Input.GetKeyDown(KeyCode.Space) && currentLineIndex <= dialogueLines.Length) // Check for space key press during dialogue
+        if (isDialogueActive && Input.GetKeyDown(KeyCode.Space) && currentLineIndex <= dialogueLines.Length) 
         {
             DisplayNextLine();
         }
@@ -50,11 +53,11 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentLineIndex == dialogueLines.Length)
         {
-            // Dialogue finished, show question panel
+
             questionPanel.SetActive(true);
             textField.SetActive(false);
             isDialogueActive = false;
-            SetupQuestionAndAnswers(); // Set up question and answer options
+            SetupQuestionAndAnswers();
             return;
         }
 
@@ -64,37 +67,35 @@ public class DialogueManager : MonoBehaviour
 
     public void SetupQuestionAndAnswers()
     {
-        // Assuming you have a separate array or data structure to store questions and answers
-        questionText.text = "Question: Whats 1 + 1 ? "; // Replace with your question retrieval logic
+ 
+        questionText.text = "Question: Whats 1 + 1 ? "; 
 
-        // Set answer options on buttons (assuming 4 answer buttons)
+
         for (int i = 0; i < answerButtons.Length; i++)
         {
-            answerButtons[i].text = $"{i}"; // Replace with your answer retrieval logic
+            answerButtons[i].text = $"{i}"; 
         }
 
-        // Set the correct answer (assuming it's stored in a separate variable in your data structure)
-        correctAnswer = "2"; // Replace with your logic
+
+        correctAnswer = "2"; 
     }
-
-    public void OnAnswerSelected(int answerIndex) // This function will be called by the button's onClick event
+    [SerializeField] private string NextScene;
+    public void OnAnswerSelected(int answerIndex) 
     {
-
-        Debug.Log("Sds");
         string selectedAnswer = answerButtons[answerIndex].text;
 
-        if (selectedAnswer == correctAnswer)
-        {
-            // Destroy enemy (assuming the enemy script is attached to this game object)
-            questionPanel.SetActive(true);
-            Con.SetActive(true);
-            Destroy(Enemy);
-        }
-        else
-        {
-            // Handle incorrect answer (e.g., display message, retry question, load scene)
-            // Optionally, reload the scene (assuming you have a scene name stored)
-            // SceneManager.LoadScene(/* Your scene name */);
-        }
+    if (selectedAnswer == correctAnswer){
+ 
+    questionPanel.SetActive(false);
+    Destroy(Enemy);
+    Con.SetActive(true);
+    LoadNextSceneWithDelay();
     }
+
+    async void LoadNextSceneWithDelay(){
+    await Task.Delay(3000); 
+
+    SceneManager.LoadScene(NextScene);
+    }
+}
 }
