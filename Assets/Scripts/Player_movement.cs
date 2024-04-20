@@ -1,28 +1,28 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f; // Movement speed
-    public float jumpForce = 5f; // Jump force
-    public bool isGrounded = false; // Flag to check if grounded
+    public float speed = 5f; 
+    public float jumpForce = 5f; 
+    public bool isGrounded = false; 
 
-    private Rigidbody2D rb; // Reference to the Rigidbody2D component
-    private Animator animator; // Reference to the Animator component
+    private Rigidbody2D rb; 
+    private Animator animator;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
-        animator = GetComponent<Animator>(); // Get the Animator component
+        rb = GetComponent<Rigidbody2D>(); 
+        animator = GetComponent<Animator>(); 
     }
 
     void Update()
     {
-        float moveInput = Input.GetAxis("Horizontal"); // Get horizontal input (-1 for left, 1 for right)
+        float moveInput = Input.GetAxis("Horizontal");
 
         MovePlayer(moveInput);
         FlipSprite(moveInput);
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // Check for space key press and grounded state
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) 
         {
             Jump();
         }
@@ -30,25 +30,25 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer(float moveInput)
     {
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y); // Set velocity based on input and maintain vertical velocity
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y); 
 
-        // Update animation parameter based on movement (Optional)
-        animator.SetFloat("Speed", Mathf.Abs(moveInput)); // Set "Speed" parameter in Animator based on absolute movement value (0 for idle, positive for right, negative for left)
-    if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow)) // Check for "A" or Left Arrow key release
+
+        animator.SetFloat("Speed", Mathf.Abs(moveInput)); 
+    if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow)) 
     {
-        if (moveInput < 0) // If moving left
+        if (moveInput < 0) 
         {
-            moveInput = 0; // Set moveInput to 0 to stop movement
-            animator.SetFloat("Speed", 0); // Set "Speed" parameter to 0 for idle animation (optional)
+            moveInput = 0; 
+            animator.SetFloat("Speed", 0); 
         }
     }
 
-    if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow)) // Check for "D" or Right Arrow key release
+    if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow)) 
     {
-        if (moveInput > 0) // If moving right
+        if (moveInput > 0)
         {
-            moveInput = 0; // Set moveInput to 0 to stop movement
-            animator.SetFloat("Speed", 0); // Set "Speed" parameter to 0 for idle animation (optional)
+            moveInput = 0; 
+            animator.SetFloat("Speed", 0);
         }
     }    
     
@@ -56,28 +56,34 @@ public class PlayerMovement : MonoBehaviour
 
     void FlipSprite(float moveInput)
     {
-        if (moveInput > 0) // Moving right
+        if (moveInput > 0)
         {
-            transform.localScale = new Vector3(3, 3, 1); // Set scale to positive (facing right)
+            transform.localScale = new Vector3(3, 3, 1); 
         }
-        else if (moveInput < 0) // Moving left
+        else if (moveInput < 0)
         {
-            transform.localScale = new Vector3(-3, 3, 1); // Set scale to negative (facing left)
+            transform.localScale = new Vector3(-3, 3, 1); 
         }
     }
 
     void Jump()
     {
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse); // Apply jump force
-        isGrounded = false; // Set grounded flag to false
-        animator.SetTrigger("Jump"); // Trigger "Jump" animation in Animator
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        isGrounded = false; 
+        animator.SetTrigger("Jump"); 
     }
-
-    void OnCollisionEnter2D(Collision2D collision) // Detect collision for grounding
+    [SerializeField] private string Fight;
+    void OnCollisionEnter2D(Collision2D collision) 
     {
-        if (collision.gameObject.tag == "Ground") // Check if colliding with ground
+        if (collision.gameObject.tag == "Ground") 
         {
             isGrounded = true;
         }
+        
+        if (collision.gameObject.tag == "Enemy") 
+        {
+            SceneManager.LoadScene(Fight);
+        }
     }
+
 }
