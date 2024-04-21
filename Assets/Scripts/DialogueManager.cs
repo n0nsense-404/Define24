@@ -37,6 +37,8 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private GameObject frame;
     [SerializeField] private TextMeshProUGUI[] answerButtons;
+
+    [SerializeField] private GameObject buttons;
     [SerializeField] private TextMeshProUGUI gameOverQuestionsText;
 
     private int currentLineIndex = 0;
@@ -150,6 +152,7 @@ public class DialogueManager : MonoBehaviour
                 questionPanel.SetActive(false);
                 Destroy(Enemy);
                 //Con.SetActive(true);
+                buttons.SetActive(false);
                 frame.SetActive(true);
                 ShowGameOverQuestions();
                 //LoadNextSceneWithDelay();
@@ -168,6 +171,7 @@ public class DialogueManager : MonoBehaviour
             {
                 // Player defeated
                 //SceneManager.UnloadSceneAsync("Fight");
+                buttons.SetActive(false);
                 frame.SetActive(true);
                 ShowGameOverQuestions();
                 //Time.timeScale = 1f;
