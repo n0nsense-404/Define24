@@ -80,13 +80,13 @@
        <li>
            Question and Answer System
            <ul>
-               <li>C# script fetching data from an API</li>
+               <li>C# script fetching data from Open Trivia Database API</li>
            </ul>
        </li>
        <li>
            Physics and Collisions
            <ul>
-               <li>Unity's Physics Engine</li>
+               <li>Unity's In-built Physics Engine</li>
            </ul>
        </li>
        <li>
@@ -98,11 +98,11 @@
        </li>
    </ol>
 
-## How to configure
-Instructions for setting up project
 
 ## How to Run
 Download and Run the latest version of the executable from releases.
 
 ## Other Links
-Provide any other links ( for eg. Wireframe , UI, Abstract, Presentation )
+[View our presentation](https://www.canva.com/design/DAGDBAChNMo/pf2CT8Z_PBi2FtCKAZe9OA/edit?utm_content=DAGDBAChNMo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+[View our report](https://github.com/n0nsense-404/muttapuffs/main/motta puffs.pdf)
