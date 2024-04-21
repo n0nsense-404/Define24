@@ -3,9 +3,9 @@
 ![WhatsApp Image 2024-04-18 at 12 33 29_51d9e514](https://github.com/Definehack/Define24/assets/79042374/4d6c229a-5048-4ac9-bba6-c0e835e22097)
 
 ## Adaptive Gamified Learning Platform
-Gamify is an engaging 2D platformer game built in Unity, where players control a hero navigating through levels filled with enemies. To defeat enemies and progress, players must answer educational questions correctly. The game combines action-packed platforming with interactive learning, offering a fun way to enhance knowledge across various topics.
+Gamify is an engaging 2D platformer game built in Unity, where players control a hero navigating through levels filled with enemies. To defeat enemies and progress, players must answer educational questions correctly. The game combines action-packed platforming with interactive learning, offering a fun way to enhance knowledge across various topics. <br>
 <br>
-![demoGIF](https://github.com/n0nsense-404/mottapuffs/main/demoEmbed.gif)
+![demoGIF](https://github.com/n0nsense-404/mottapuffs/blob/main/demoEmbed.gif)
 
 ## Team motta puffs
 
@@ -104,4 +104,4 @@ Just download and run the latest version of the executable from releases page.
 ## Other Links
 [View our presentation](https://www.canva.com/design/DAGDBAChNMo/pf2CT8Z_PBi2FtCKAZe9OA/edit?utm_content=DAGDBAChNMo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-[View our report](https://github.com/n0nsense-404/mottapuffs/main/mottaPuffs.pdf)
+[View our report](https://github.com/n0nsense-404/mottapuffs/blob/main/mottaPuffs.pdf)
