@@ -30,17 +30,21 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private string[] dialogueLines;
     [SerializeField] private GameObject questionPanel;
-    [SerializeField] private GameObject Enemy; // Enemy GameObject
+    [SerializeField] private GameObject Enemy; 
     [SerializeField] private GameObject textField;
     [SerializeField] private TextMeshProUGUI questionText;
     [SerializeField] private GameObject Con;
+
+    [SerializeField] private GameObject frame;
     [SerializeField] private TextMeshProUGUI[] answerButtons;
+    [SerializeField] private TextMeshProUGUI gameOverQuestionsText;
 
     private int currentLineIndex = 0;
     private bool isDialogueActive = true;
     private string correctAnswer;
+    private List<string> questions = new List<string>(); 
+    private List<string> correctAnswers = new List<string>();
 
-    // Player and enemy health variables
     private int playerHealth = 3;
     private int enemyHealth = 3;
 
@@ -63,6 +67,7 @@ public class DialogueManager : MonoBehaviour
 
         questionPanel.SetActive(false);
         Con.SetActive(false);
+        frame.SetActive(false);
 
         playerHealthText.text = $"{playerHealth}";
         enemyHealthText.text = $"{enemyHealth}";
@@ -78,7 +83,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void DisplayNextLine()
+     public void DisplayNextLine()
     {
         if (currentLineIndex == dialogueLines.Length)
         {
@@ -97,7 +102,6 @@ public class DialogueManager : MonoBehaviour
     {
         using (UnityWebRequest www = UnityWebRequest.Get("https://opentdb.com/api.php?amount=1&category=9&difficulty=easy&type=multiple"))
         {
-            // Send the request and wait for the results
             var operation = www.SendWebRequest();
             while (!operation.isDone)
             {
@@ -110,27 +114,27 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                // Parse the response
                 var data = JsonUtility.FromJson<TriviaData>(www.downloadHandler.text);
                 var results = data.results[0];
 
                 questionText.text = results.question;
                 correctAnswer = results.correct_answer;
 
-                // Combine correct and incorrect answers
                 var incorrectAnswers = results.incorrect_answers;
                 incorrectAnswers.Add(correctAnswer);
-                incorrectAnswers = incorrectAnswers.OrderBy(a => Guid.NewGuid()).ToList(); // Randomize order
+                incorrectAnswers = incorrectAnswers.OrderBy(a => Guid.NewGuid()).ToList();
 
-                // Assign answers to buttons
                 for (int i = 0; i < answerButtons.Length; i++)
                 {
                     answerButtons[i].text = incorrectAnswers[i];
                 }
+
+                // Store questions and answers for game over display
+                questions.Add(results.question);
+                correctAnswers.Add(correctAnswer);
             }
         }
     }
-
     public void OnAnswerSelected(int answerIndex)
     {
         string selectedAnswer = answerButtons[answerIndex].text;
@@ -142,11 +146,13 @@ public class DialogueManager : MonoBehaviour
 
             if (enemyHealth <= 0)
             {
-                // Enemy defeated
+                // Enemy defeated - Show game over screen
                 questionPanel.SetActive(false);
                 Destroy(Enemy);
-                Con.SetActive(true);
-                LoadNextSceneWithDelay();
+                //Con.SetActive(true);
+                frame.SetActive(true);
+                ShowGameOverQuestions();
+                //LoadNextSceneWithDelay();
                 return;
             }
 
@@ -161,9 +167,11 @@ public class DialogueManager : MonoBehaviour
             if (playerHealth <= 0)
             {
                 // Player defeated
-                SceneManager.UnloadSceneAsync("Fight");
-                Time.timeScale = 1f;
-                SceneManager.LoadScene("Main"); // Load main scene from the start
+                //SceneManager.UnloadSceneAsync("Fight");
+                frame.SetActive(true);
+                ShowGameOverQuestions();
+                //Time.timeScale = 1f;
+                //SceneManager.LoadScene("Main"); // Load main scene from the start
                 return;
             }
 
@@ -177,5 +185,22 @@ public class DialogueManager : MonoBehaviour
         await Task.Delay(3000);
         Time.timeScale = 1f;
         SceneManager.UnloadSceneAsync("Fight");
+    }
+
+    void ShowGameOverQuestions()
+    {
+        string gameOverQuestions = "";
+
+        // Build the question list text with answers
+        for (int i = 0; i < questions.Count; i++)
+        {
+            gameOverQuestions += $"Question {i + 1}: {questions[i]}\n Answer: {correctAnswers[i]}\n\n";
+        }
+
+        // Check if gameOverQuestionsText is assigned before setting the text
+        if (gameOverQuestionsText != null)
+        {
+            gameOverQuestionsText.text = gameOverQuestions;
+        }
     }
 }
