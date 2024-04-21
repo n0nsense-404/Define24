@@ -64,8 +64,8 @@ public class DialogueManager : MonoBehaviour
         questionPanel.SetActive(false);
         Con.SetActive(false);
 
-        playerHealthText.text = $"Player Health: {playerHealth}";
-        enemyHealthText.text = $"Enemy Health: {enemyHealth}";
+        playerHealthText.text = $"{playerHealth}";
+        enemyHealthText.text = $"{enemyHealth}";
 
         DisplayNextLine();
     }
@@ -161,6 +161,8 @@ public class DialogueManager : MonoBehaviour
             if (playerHealth <= 0)
             {
                 // Player defeated
+                SceneManager.UnloadSceneAsync("Fight");
+                Time.timeScale = 1f;
                 SceneManager.LoadScene("Main"); // Load main scene from the start
                 return;
             }
