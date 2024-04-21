@@ -83,7 +83,7 @@ Gamify is an engaging 2D platformer game built in Unity, where players control a
        <li>
            Physics and Collisions
            <ul>
-               <li>Unity's In-built Physics Engine</li>
+               <li>Unity's Built-in Physics Engine</li>
            </ul>
        </li>
        <li>
@@ -97,7 +97,7 @@ Gamify is an engaging 2D platformer game built in Unity, where players control a
 
 
 ## How to Run
-Download and Run the latest version of the executable from releases.
+Just download and run the latest version of the executable from releases page.
 
 ## Other Links
 [View our presentation](https://www.canva.com/design/DAGDBAChNMo/pf2CT8Z_PBi2FtCKAZe9OA/edit?utm_content=DAGDBAChNMo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
