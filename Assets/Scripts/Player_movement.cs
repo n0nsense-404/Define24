@@ -58,11 +58,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveInput > 0)
         {
-            transform.localScale = new Vector3(3, 3, 1); 
+            transform.localScale = new Vector3(2, 2, 1); 
         }
         else if (moveInput < 0)
         {
-            transform.localScale = new Vector3(-3, 3, 1); 
+            transform.localScale = new Vector3(-2, 2, 1); 
         }
     }
 
@@ -75,6 +75,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private string Fight;
     void OnCollisionEnter2D(Collision2D collision) 
     {
+
+
         if (collision.gameObject.tag == "Ground") 
         {
             isGrounded = true;
@@ -82,7 +84,12 @@ public class PlayerMovement : MonoBehaviour
         
         if (collision.gameObject.tag == "Enemy") 
         {
-            SceneManager.LoadScene(Fight);
+
+        Time.timeScale = 0f;
+        SceneManager.LoadSceneAsync(Fight, LoadSceneMode.Additive);
+        Destroy(collision.gameObject); 
+        //SceneManager.LoadScene(Fight);
+        
         }
     }
 

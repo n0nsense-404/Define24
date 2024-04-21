@@ -95,7 +95,8 @@ public class DialogueManager : MonoBehaviour
     async void LoadNextSceneWithDelay(){
     await Task.Delay(3000); 
 
-    SceneManager.LoadScene(NextScene);
+    Time.timeScale = 1f;
+    SceneManager.UnloadSceneAsync("Fight");
     }
 }
 }
