@@ -3,11 +3,11 @@
 ![WhatsApp Image 2024-04-18 at 12 33 29_51d9e514](https://github.com/Definehack/Define24/assets/79042374/4d6c229a-5048-4ac9-bba6-c0e835e22097)
 
 ## Adaptive Gamified Learning Platform
-Tell us about your project here
+"tbh" is an engaging 2D platformer game built in Unity, where players control a hero navigating through levels filled with enemies. To defeat enemies and progress, players must answer educational questions correctly. The game combines action-packed platforming with interactive learning, offering a fun way to enhance knowledge across various topics.
 
 ## Team motta puffs
 
-### Team Members
+## Team Members
 <a href="https://github.com/n0nsense-404" target="_blank">1. Abhiragh A R</a>
 
 <a href="https://github.com/AmodhAnil" target="_blank">2. Amodh Anil</a>
@@ -18,10 +18,10 @@ Tell us about your project here
 
 <a href="https://github.com/igris39" target="_blank">5. Ramanunni R S</a>
 
-### Link to Project
+## Link to Project
 [Embed the live link of project](live_link)
 
-### How it Works ?
+## How it Works ?
 <ol>
 <li>Game Setup:</li>
   <ul>
@@ -50,7 +50,7 @@ Tell us about your project here
   </ul>
 </ol>
 
-### Technologies used
+## Technologies used
    <ol>
        <li>
            Game Engine
@@ -98,11 +98,11 @@ Tell us about your project here
        </li>
    </ol>
 
-### How to configure
+## How to configure
 Instructions for setting up project
 
-### How to Run
+## How to Run
 Download and Run the latest version of the executable from releases.
 
-### Other Links
+## Other Links
 Provide any other links ( for eg. Wireframe , UI, Abstract, Presentation )
