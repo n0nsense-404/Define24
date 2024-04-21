@@ -95,7 +95,7 @@ public class DialogueManager : MonoBehaviour
 
     public async void SetupQuestionAndAnswers()
     {
-        using (UnityWebRequest www = UnityWebRequest.Get("https://opentdb.com/api.php?amount=1"))
+        using (UnityWebRequest www = UnityWebRequest.Get("https://opentdb.com/api.php?amount=1&category=9&difficulty=easy&type=multiple"))
         {
             // Send the request and wait for the results
             var operation = www.SendWebRequest();
