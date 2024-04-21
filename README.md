@@ -7,7 +7,6 @@
 
 ## Team motta puffs
 
-## Team Members
 <a href="https://github.com/n0nsense-404" target="_blank">1. Abhiragh A R</a>
 
 <a href="https://github.com/AmodhAnil" target="_blank">2. Amodh Anil</a>
@@ -18,8 +17,6 @@
 
 <a href="https://github.com/igris39" target="_blank">5. Ramanunni R S</a>
 
-## Link to Project
-[Embed the live link of project](live_link)
 
 ## How it Works ?
 <ol>
@@ -105,4 +102,4 @@ Download and Run the latest version of the executable from releases.
 ## Other Links
 [View our presentation](https://www.canva.com/design/DAGDBAChNMo/pf2CT8Z_PBi2FtCKAZe9OA/edit?utm_content=DAGDBAChNMo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-[View our report](https://github.com/n0nsense-404/muttapuffs/main/motta puffs.pdf)
+[View our report](https://github.com/n0nsense-404/muttapuffs/main/mottaPuffs.pdf)
