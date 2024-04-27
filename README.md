@@ -104,6 +104,6 @@ Just download and run the latest version of the executable from releases page.
 ## Other Links
 [View our presentation](https://www.canva.com/design/DAGDBAChNMo/pf2CT8Z_PBi2FtCKAZe9OA/edit?utm_content=DAGDBAChNMo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-[View our demo video](https://github.com/n0nsense-404/mottapuffs/blob/main/demo.mp4)
+[View our demo video](https://www.youtube.com/watch?v=cIloCwa5ZrM)
 
 [View our report](https://github.com/n0nsense-404/mottapuffs/blob/main/mottaPuffs.pdf)
